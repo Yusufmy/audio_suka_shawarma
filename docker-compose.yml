@@ -63,6 +63,9 @@ services:
     volumes:
       - ./be_audio_suka_shawarma/storage/app/firebase:/var/www/storage/app/firebase
 
+    networks:
+      - audio-network
+
     restart: unless-stopped
 
 
@@ -112,6 +115,9 @@ services:
     volumes:
       - ./be_audio_suka_shawarma/storage/app/firebase:/var/www/storage/app/firebase
 
+    networks:
+      - audio-network
+
     restart: unless-stopped
 
 
@@ -122,6 +128,9 @@ services:
 
     expose:
       - "80"
+
+    networks:
+      - audio-network
 
     restart: unless-stopped
 
@@ -138,12 +147,20 @@ services:
       - caddy_data:/data
       - caddy_config:/config
 
+    networks:
+      - audio-network
+
     depends_on:
       - backend
       - reverb
       - web
 
     restart: unless-stopped
+
+
+networks:
+  audio-network:
+    driver: bridge
 
 
 volumes:
