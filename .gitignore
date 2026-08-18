@@ -1,0 +1,28 @@
+# Laravel
+be_audio_suka_shawarma/.env
+be_audio_suka_shawarma/.env.backup
+be_audio_suka_shawarma/.env.production
+
+# Firebase credentials
+be_audio_suka_shawarma/storage/app/firebase/service-account.json
+
+# Laravel generated
+be_audio_suka_shawarma/vendor/
+be_audio_suka_shawarma/node_modules/
+be_audio_suka_shawarma/public/build/
+be_audio_suka_shawarma/storage/logs/
+be_audio_suka_shawarma/storage/framework/cache/
+be_audio_suka_shawarma/storage/framework/sessions/
+be_audio_suka_shawarma/storage/framework/views/
+
+# React
+web_audio_suka_shawarma/node_modules/
+web_audio_suka_shawarma/dist/
+web_audio_suka_shawarma/.env.local
+web_audio_suka_shawarma/.env.production.local
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
