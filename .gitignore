@@ -18,6 +18,7 @@ be_audio_suka_shawarma/storage/framework/views/
 # React
 web_audio_suka_shawarma/node_modules/
 web_audio_suka_shawarma/dist/
+web_audio_suka_shawarma/.env
 web_audio_suka_shawarma/.env.local
 web_audio_suka_shawarma/.env.production.local
 
