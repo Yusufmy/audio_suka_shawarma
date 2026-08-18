@@ -65,6 +65,7 @@ services:
 
     networks:
       - audio-network
+      - coolify
 
     restart: unless-stopped
 
@@ -117,6 +118,7 @@ services:
 
     networks:
       - audio-network
+      - coolify
 
     restart: unless-stopped
 
@@ -161,6 +163,8 @@ services:
 networks:
   audio-network:
     driver: bridge
+  coolify:
+    external: true
 
 
 volumes:
