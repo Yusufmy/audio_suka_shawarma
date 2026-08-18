@@ -1,23 +1,18 @@
 services:
 
-  # ============================================================
-  # LARAVEL BACKEND
-  # ============================================================
   backend:
     build:
-      context: ./be
+      context: ./be_audio_suka_shawarma
       dockerfile: Dockerfile
 
-    container_name: audio-backend
-
     env_file:
-      - ./be/.env
+      - ./be_audio_suka_shawarma/.env
 
     expose:
       - "8000"
 
     volumes:
-      - ./be/storage/app/firebase:/var/www/storage/app/firebase
+      - ./be_audio_suka_shawarma/storage/app/firebase:/var/www/storage/app/firebase
 
     networks:
       - audio-network
@@ -25,26 +20,21 @@ services:
     restart: unless-stopped
 
 
-  # ============================================================
-  # LARAVEL REVERB
-  # ============================================================
   reverb:
     build:
-      context: ./be
+      context: ./be_audio_suka_shawarma
       dockerfile: Dockerfile
-
-    container_name: audio-reverb
 
     command: php artisan reverb:start --host=0.0.0.0 --port=8080
 
     env_file:
-      - ./be/.env
+      - ./be_audio_suka_shawarma/.env
 
     expose:
       - "8080"
 
     volumes:
-      - ./be/storage/app/firebase:/var/www/storage/app/firebase
+      - ./be_audio_suka_shawarma/storage/app/firebase:/var/www/storage/app/firebase
 
     networks:
       - audio-network
@@ -52,15 +42,10 @@ services:
     restart: unless-stopped
 
 
-  # ============================================================
-  # REACT WEB
-  # ============================================================
   web:
     build:
-      context: ./web
+      context: ./web_audio_suka_shawarma
       dockerfile: Dockerfile
-
-    container_name: audio-shawarma-web
 
     expose:
       - "80"
@@ -71,13 +56,8 @@ services:
     restart: unless-stopped
 
 
-  # ============================================================
-  # CADDY
-  # ============================================================
   caddy:
     image: caddy:2-alpine
-
-    container_name: audio-caddy
 
     restart: unless-stopped
 
@@ -99,17 +79,11 @@ services:
       - web
 
 
-# ============================================================
-# NETWORK
-# ============================================================
 networks:
   audio-network:
     driver: bridge
 
 
-# ============================================================
-# CADDY DATA
-# ============================================================
 volumes:
   caddy_data:
   caddy_config:

@@ -1,16 +1,13 @@
 radio.sukashawarma.com {
 
-    # Laravel API
     handle /api/* {
         reverse_proxy backend:8000
     }
 
-    # Laravel Reverb WebSocket
     handle /app/* {
         reverse_proxy reverb:8080
     }
 
-    # React/Vite Web
     handle {
         reverse_proxy web:80
     }
