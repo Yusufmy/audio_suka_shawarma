@@ -1,28 +1,30 @@
 services:
-
   backend:
     build:
       context: ./be_audio_suka_shawarma
       dockerfile: Dockerfile
-    env_file:
-      - ./be_audio_suka_shawarma/.env
+
     expose:
       - "8000"
+
     volumes:
       - ./be_audio_suka_shawarma/storage/app/firebase:/var/www/storage/app/firebase
+
     restart: unless-stopped
 
   reverb:
     build:
       context: ./be_audio_suka_shawarma
       dockerfile: Dockerfile
+
     command: php artisan reverb:start --host=0.0.0.0 --port=8080
-    env_file:
-      - ./be_audio_suka_shawarma/.env
+
     expose:
       - "8080"
+
     volumes:
       - ./be_audio_suka_shawarma/storage/app/firebase:/var/www/storage/app/firebase
+
     restart: unless-stopped
 
   web:
